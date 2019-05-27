@@ -1,0 +1,17 @@
+<?php
+session_start();
+
+$_SESSION["idusu"];
+$_SESSION["usuar"];
+$_SESSION["nickname"];
+
+$hostname_localhost="localhost";
+$database_localhost="cine";
+$username_localhost="root";
+$password_localhost="789789";
+
+$link = mysqli_connect($hostname_localhost,$username_localhost,$password_localhost);
+mysqli_select_db($link,$database_localhost);
+
+	$link->query("DELETE FROM usuario WHERE id_usuario = '$_REQUEST[book_id]'") or die(mysqli_error());
+	header("location: iusuario.php");
